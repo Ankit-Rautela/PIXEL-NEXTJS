@@ -1,0 +1,35 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String   @id @default(cuid())
+  name           String?
+  email          String   @unique
+  role           String   @default("USER")
+  hashedPassword String
+  createdAt      DateTime @default(now())
+  ordersCreated  WorkOrder[] @relation("OrdersCreated")
+  ordersAssigned WorkOrder[] @relation("OrdersAssigned")
+}
+
+model WorkOrder {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  priority     String   @default("MED")
+  status       String   @default("OPEN")
+  createdById  String
+  assignedToId String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  createdBy  User @relation("OrdersCreated", fields: [createdById], references: [id])
+  assignedTo User? @relation("OrdersAssigned", fields: [assignedToId], references: [id])
+}
+

@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root { color-scheme: light dark; }
+body { @apply bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50; }
+.container { @apply mx-auto max-w-5xl px-4; }
+.card { @apply rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 shadow-sm bg-white/50 dark:bg-zinc-900/30; }
+.btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-zinc-300 dark:border-zinc-700 hover:bg-zinc-100 dark:hover:bg-zinc-800; }
+.btn-primary { @apply bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 hover:opacity-90; }
+.input { @apply w-full rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 px-3 py-2; }
+.label { @apply text-sm text-zinc-600 dark:text-zinc-400; }
+.badge { @apply inline-flex items-center rounded-full px-2 py-0.5 text-xs border; }
+.header-fixed {
+  background-color: #1f1844;
+  color: #fff;
+}
