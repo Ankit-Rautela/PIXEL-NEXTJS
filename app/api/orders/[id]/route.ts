@@ -12,7 +12,7 @@ const UpdateSchema = z.object({
   assignedToId: z.string().optional(),
 });
 
-// ✅ GET /api/orders/[id]
+//GET /api/orders/[id]
 export async function GET(
   req: NextRequest,
   context: { params: { id: string } }
@@ -41,7 +41,7 @@ export async function GET(
   return NextResponse.json(order);
 }
 
-// ✅ PATCH /api/orders/[id]
+//PATCH /api/orders/[id]
 export async function PATCH(
   req: NextRequest,
   context: { params: { id: string } }
@@ -72,14 +72,14 @@ export async function PATCH(
   const data: any = {};
 
   if (session.user.role === "USER") {
-    // ✅ Normal users: only these fields
+    // Normal users: only these fields
     if (parsed.data.title) data.title = parsed.data.title;
     if (parsed.data.description) data.description = parsed.data.description;
     if (parsed.data.priority) data.priority = parsed.data.priority;
   }
 
   if (session.user.role === "MANAGER") {
-    // ✅ Managers: can update everything
+    // Managers: can update everything
     if (parsed.data.title) data.title = parsed.data.title;
     if (parsed.data.description) data.description = parsed.data.description;
     if (parsed.data.priority) data.priority = parsed.data.priority;
