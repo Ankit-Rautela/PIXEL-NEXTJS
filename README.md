@@ -358,13 +358,3 @@ git branch -M main
 git remote add origin git@github.com:<your-username>/<repo>.git
 git push -u origin main
 ```
-
-## Final notes
-
-If you want, I can:
-
-* generate all files for you here and provide a zip
-* create a ready `.github/workflows/ci.yml` for CI + migrate/seed
-* convert seed to JS instead of TS
-
-Tell me which of those you want next and I'll add them in this repo document.
